@@ -29,6 +29,7 @@ public class TriggerTest : MonoBehaviour
             if (gameObject.name != "FIN")
             {
                 next.SetActive(true);
+                gameObject.SetActive(false);
             }
             else
             {
