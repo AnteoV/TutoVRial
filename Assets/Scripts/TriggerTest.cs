@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class TriggerTest : MonoBehaviour
 {
+    public GameObject next;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (gameObject.name != "CP1")
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -19,7 +23,18 @@ public class TriggerTest : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag=="Player")
-        Debug.Log("tu sam");
+        if (other.tag == "Player")
+        {
+            Destroy(gameObject.GetComponent<MeshRenderer>());
+            if (gameObject.name != "FIN")
+            {
+                next.SetActive(true);
+            }
+            else
+            {
+                Debug.Log("Kraj");
+            }
+            
+        }
     }
 }
