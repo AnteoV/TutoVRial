@@ -31,7 +31,7 @@ namespace BNG {
         public Transform MuzzleOrigin;
 
         [Tooltip("Sticky Object")]
-        public bool StickToObject = false;
+        public bool StickToObject = true;
 
         /// <summary>
         /// Minimum Z velocity required to register as an impact
@@ -103,6 +103,8 @@ namespace BNG {
 
             if (StickToObject) {
                 // tryStickToObject
+                
+                
             }
             else {
                 // Done with this projectile

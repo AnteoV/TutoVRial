@@ -3,10 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BuzzGame : MonoBehaviour
+
 {
+
+    public bool flag;
+    public Material safeMat;
+    public Material dangerMat;
+    public List<GameObject> indicator;
     // Start is called before the first frame update
     void Start()
     {
+        flag = false;
         
     }
 
@@ -18,13 +25,24 @@ public class BuzzGame : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Buzz")
+        if (flag)
         {
-            Debug.Log("Mrtav");
+            foreach (GameObject go in indicator)
+            {
+               go.GetComponent<MeshRenderer>().material = dangerMat;
+            }
         }
-        else
+            
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (flag)
         {
-            Debug.Log("Živ");
+            foreach (GameObject go in indicator)
+            {
+                go.GetComponent<MeshRenderer>().material = safeMat;
+            }
         }
     }
 }
