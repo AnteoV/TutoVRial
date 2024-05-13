@@ -5,6 +5,7 @@ using UnityEngine;
 public class ArrowTest : MonoBehaviour
 {
     protected bool alreadyHit;
+    public GameManagerArrow gm;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +22,17 @@ public class ArrowTest : MonoBehaviour
     {
         if (!alreadyHit)
         {
-            Debug.Log("Hit");
             alreadyHit = true;
+            gm.hit();
+            Invoke("despawnTarget", 2.5f);
         }
         else {
             Debug.Log("Ne more");
         }
+    }
+
+    private void despawnTarget()
+    {
+        this.gameObject.SetActive(false);
     }
 }
