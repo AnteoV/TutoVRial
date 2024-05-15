@@ -8,7 +8,6 @@ public class VideoPlayScript : MonoBehaviour
     public List<GameObject> screens;
     private int videoPlaying;
     List<VideoPlayer> vp = new List<VideoPlayer>();
-    // Start is called before the first frame update
     void Start()
     {
         
@@ -19,19 +18,12 @@ public class VideoPlayScript : MonoBehaviour
         }
         videoPlaying = -1;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void playVideo(int index)
     {
         if (videoPlaying != -1)
         {
-            screens[videoPlaying].SetActive(false);
             vp[videoPlaying].Pause();
+            screens[videoPlaying].SetActive(false);
         }
         if (index != -1)
         {

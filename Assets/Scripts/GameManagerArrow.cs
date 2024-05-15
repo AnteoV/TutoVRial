@@ -5,19 +5,22 @@ using TMPro;
 
 public class GameManagerArrow : MonoBehaviour
 {
-    public float time;
+    private float time;
     public bool started;
     public GameObject timer;
+    public GameObject highScore;
     private TextMeshPro timertext;
     private int score;
-    
-    // Start is called before the first frame update
+    private int prevBest;
+    private GameObject[] targets;
     void Start()
     {
         started = false;
-    }
+        targets = GameObject.FindGameObjectsWithTag("Target");
+        prevBest = PlayerPrefs.GetInt("arrowHS", 0);
+        highScore.GetComponent<TextMeshPro>().text+=prevBest.ToString();
 
-    // Update is called once per frame
+    }
     void Update()
     {
         if(time > 0 && started)
@@ -31,6 +34,19 @@ public class GameManagerArrow : MonoBehaviour
         {
             Debug.Log(score);
             started = false;
+            for(int i=0; i< targets.Length; i++)
+            {
+                if (!targets[i].activeSelf)
+                {
+                    targets[i].SetActive(true);
+                }
+            }
+            if(score > prevBest)
+            {
+                prevBest = score;
+                PlayerPrefs.SetInt("arrowHS", prevBest);
+            }
+
         }
     }
 
@@ -47,6 +63,7 @@ public class GameManagerArrow : MonoBehaviour
     {
         started = true;
         score = 0;
+        time = 90f;
         timertext = timer.GetComponent<TextMeshPro>();
         timertext.text = "01:30";
         Debug.Log("Poceelo");
