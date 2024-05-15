@@ -6,6 +6,7 @@ using UnityEngine;
 public class TriggerTest : MonoBehaviour
 {
     public GameObject next;
+    public GameManagerRocketman gm;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +34,7 @@ public class TriggerTest : MonoBehaviour
             }
             else
             {
-                Debug.Log("Kraj");
+                gm.endGame();
             }
             
         }

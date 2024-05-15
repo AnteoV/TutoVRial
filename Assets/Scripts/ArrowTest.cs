@@ -27,7 +27,7 @@ public class ArrowTest : MonoBehaviour
             Invoke("despawnTarget", 2.5f);
         }
         else {
-            Debug.Log("Ne more");
+            Debug.Log("Ne");
         }
     }
 

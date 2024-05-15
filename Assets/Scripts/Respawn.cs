@@ -11,11 +11,6 @@ public class Respawn : MonoBehaviour
     void Start()
     {
         t = character.transform;
-        foreach (GameObject checkpoint in checkpoints)
-        {
-            Debug.Log(checkpoint.name);
-        }
-        Debug.Log(t.position);
     }
 
     private void OnTriggerEnter(Collider other)

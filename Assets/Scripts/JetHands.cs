@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using BNG;
 using UnityEngine;
 
@@ -8,6 +9,9 @@ public class JetHands : MonoBehaviour
     [SerializeField] private float jetForce;
     [SerializeField] private ParticleSystem particleSystem;
     [SerializeField] private ControllerHand hand;
+    private CharacterController characterController;
+    private float timerFlying;
+    private float timerCooldown;
     private GameObject playerController;
     private SmoothLocomotion smoothLocomotion;
     private PlayerGravity playerGravity;
@@ -15,24 +19,48 @@ public class JetHands : MonoBehaviour
     private Vector3 direction;
     private bool flying;
     private bool falling;
+    private bool grounded;
     void Start()
     {
         playerController = GameObject.FindWithTag("Player");
         smoothLocomotion = playerController.GetComponent<SmoothLocomotion>();
         playerGravity = playerController.GetComponent<PlayerGravity>();
         audioSource = GetComponent<AudioSource>();
+        characterController = playerController.GetComponent<CharacterController>();
+        timerFlying = 3f;
     }
 
     void Update()
     {
-        if (hand == ControllerHand.Left)
+        grounded = characterController.isGrounded;
+        if(timerFlying >= 0f)
         {
-            FlightCheck(InputBridge.Instance.LeftGrip);
+            if (hand == ControllerHand.Left)
+            {
+                FlightCheck(InputBridge.Instance.LeftGrip);
+            }
+            if (hand == ControllerHand.Right)
+            {
+                FlightCheck(InputBridge.Instance.RightGrip);
+            }
+            if (flying)
+            {
+                timerFlying -= Time.deltaTime;
+            }
+            if (grounded)
+            {
+                timerFlying = 3f;
+            }
         }
-        if (hand == ControllerHand.Right) 
+        else
         {
-            FlightCheck(InputBridge.Instance.RightGrip);
+            NoJet();
+            if (grounded)
+            {
+                timerFlying = 3f;
+            }
         }
+        
     }
 
     private void FlightCheck(float grip)
@@ -72,7 +100,7 @@ public class JetHands : MonoBehaviour
         {
             audioSource.Stop();
         }
-        if (particleSystem != null && !particleSystem.isPlaying)
+        if (particleSystem != null && particleSystem.isPlaying)
         {
             particleSystem.Stop();
         }
