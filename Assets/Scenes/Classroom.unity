@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6230,7 +6230,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Kretanje - lijeva palica\nPromjena vrste kretanja- pritisak lijeve palice\nOkret
-    u mjestu - desna palica\nHvatanje objekata - bo\u010Dne \"trigger\" palice\nPritisak
+    u mjestu - desna palica\nHvatanje objekata - bo\u010Dne \"grip\" palice\nPritisak
     tipki UI elemenata - prednje \"trigger\" palice\nSprint - A\nSkok - B\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a6446991ef31ced4190c53c206cf4b3e, type: 2}
@@ -8086,8 +8086,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684593457}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 5.712, y: 2.529, z: 4.728}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 6.0996, y: 2.3918, z: 4.186}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10044,7 +10044,7 @@ Transform:
   m_GameObject: {fileID: 843731041}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2.653, y: 2.524, z: 4.722}
+  m_LocalPosition: {x: 3.032, y: 2.3918, z: 4.1864}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13505,7 +13505,7 @@ PrefabInstance:
       propertyPath: m_Text
       value: "Do\u0161li ste do posljednjog koraka!\nOkrenite se i oti\u0111ite do
         stola iza vas na kojeg se nalaze naran\u010Daste kugle i plave \"kockice\".
-        Uzmite bilo koji od tih objekata koriste\u010Di bo\u010Dnu \"trigger\" palicu
+        Uzmite bilo koji od tih objekata koriste\u010Di bo\u010Dnu \"grip\" palicu
         na va\u0161im kontrolerima. Kada ste uhvatili objekt sve dok dr\u017Eite
         palicu objekt \u0107e biti u va\u0161im rukama. Kako bi kompletirali ovaj
         posljednji korak, prenesite ili lopticu ili kockicu sa stola na kojeg se
