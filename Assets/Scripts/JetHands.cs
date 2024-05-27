@@ -18,7 +18,6 @@ public class JetHands : MonoBehaviour
     private AudioSource audioSource;
     private Vector3 direction;
     private bool flying;
-    private bool falling;
     private bool grounded;
     void Start()
     {

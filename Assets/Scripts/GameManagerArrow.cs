@@ -33,7 +33,6 @@ public class GameManagerArrow : MonoBehaviour
         }
         if (time <= 0 && started)
         {
-            Debug.Log(score);
             timertext.text = "00:00";
             started = false;
             for(int i=0; i< targets.Length; i++)

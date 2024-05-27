@@ -35,7 +35,6 @@ public class GameManagerRocketman : MonoBehaviour
     {
         started = true;
         time = 0f;
-        Debug.Log("poceo sam");
     }
 
     public void endGame()
